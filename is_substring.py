@@ -1,19 +1,19 @@
+'''
+>>> is_rotated_string('waterbottle', 'erbottlewat')
+True
+
+>>> is_rotated_string('waters', 'watesr')
+False
+
+>>> is_rotated_string('waters', 'water')
+False
+
+is_rotated_string('', 'water')
+False
+'''
+
 def is_rotated_string(str1, str2):
-    '''
-    Check if string2 is a rotated substring of string1.
-
-    >>> is_rotated_string('waterbottle', 'erbottlewat')
-    True
-
-    >>> is_rotated_string('waters', 'watesr')
-    False
-
-    >>> is_rotated_string('waters', 'water')
-    False
-
-    is_rotated_string('', 'water')
-    False
-    '''
+    'Returns True if string2 is a rotated substring of string1.'
 
     if len(str1) > 0 and len(str2) and \
     len(str1) == len(str2) > 0:
@@ -30,7 +30,5 @@ def is_rotated_string(str1, str2):
 
 if __name__ == '__main__':
     import doctest
-
-
 if doctest.testmod().failed == 0:
     print "\n*** ALL TESTS PASSED. GO YOU!\n"
