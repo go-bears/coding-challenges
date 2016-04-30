@@ -1,6 +1,6 @@
 import json
 
-from tinydb import TinyDB, Query # required module: pip install tinydb
+from tinydb import TinyDB, Query # required module, install with: pip install tinydb
 
 DB = TinyDB('db.json')
 
