@@ -3,23 +3,30 @@ Write a function to determine if any 3 integers in an array sum to 0.
 
 If so, return True if, else False
 
->>> sum_three_to_zero([1,-1,3,5,2,-2])
+>>> is_sum_three_to_zero([1,-1,3,5,2,-2])
 True
 
->>> sum_three_to_zero([1,1,1,1,1])
+>>> is_sum_three_to_zero([1,1,1,1,1])
 False
 
->>> sum_three_to_zero([1,-1])
+>>> is_sum_three_to_zero([1,-1])
 False
 
->>> sum_three_to_zero([1,-1, 0])
+>>> is_sum_three_to_zero([1,-1, 0])
 True
 
 """
 
-def sum_three_to_zero(lst):
+def is_sum_three_to_zero(lst):
     """ 
     Write a function to determine if any 3 integers in an array sum to 0.
+    
+    >>> is_sum_three_to_zero2([1,-1,3,5,2,-2])
+    True
+
+    >>> is_sum_three_to_zero2([1,1,1,1,1])
+    False
+
     """
     # validity check
     if len(lst) < 3:
@@ -56,26 +63,11 @@ def sum_three_to_zero(lst):
 
         return False
 
-
-def main():
-    import doctest
-    import timeit
-
-    print sum_three_to_zero([1,-1,3,5,2,-2])  
-    print timeit.timeit(lambda: sum_three_to_zero([1,-1,3,5,2,-2]), number=100)
-
-    if doctest.testmod().failed == 0:
-        print "\n*** All tests passed!\n"
-
-
-if __name__ == '__main__':
-    main()
-    pass
-
-
-def sum_three_to_zero2(lst):
+def is_sum_three_to_zero2(lst):
     """ 
     Write a function to determine if any 3 integers in an array sum to 0.
+    
+    Method 2: sort list in to postitive and negative & check for 
     """
     positive = []
     negative = []
@@ -93,5 +85,22 @@ def sum_three_to_zero2(lst):
     else:
         return False
 
-print sum_three_to_zero2([1,-1,3,5,2,-2])
-print sum_three_to_zero2([1,1,1,1,1])
+
+def main():
+    import doctest
+    import timeit
+
+    print is_sum_three_to_zero([1,-1,3,5,2,-2])  
+    print timeit.timeit(lambda: is_sum_three_to_zero([1,-1,3,5,2,-2]), number=100)
+
+
+    print is_sum_three_to_zero2([1,-1,3,5,2,-2])
+    print timeit.timeit(lambda: is_sum_three_to_zero2([1,-1,3,5,2,-2]), number=100)
+    
+
+    if doctest.testmod().failed == 0:
+        print "\n*** All tests passed!\n"
+
+
+if __name__ == '__main__':
+    main()
