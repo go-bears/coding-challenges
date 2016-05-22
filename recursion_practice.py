@@ -1,7 +1,5 @@
 """Recursion exercises"""
 
-
-
 import doctest
 
 
@@ -65,12 +63,13 @@ def recursion_n_to_0(n):
     """
 
     if n < 1:
-        print 0
+        return 0
     else:
-        print n
-        recursion_n_to_0(n - 1)
+        return n
+    
+    recursion_n_to_0(n - 1)
 
-# need to check this to print all the way to n
+# need to check this! to print all the way to n
 def recursion_0_to_n(start_num, end_num):
     """
     # 4. Write a function using recursion to print numbers from 0 to
@@ -94,7 +93,6 @@ def reverse_string(string, new_str, str_length):
     'gnirts'
     """
 
-
     if str_length < 1:   
         return new_str
 
@@ -105,7 +103,56 @@ def reverse_string(string, new_str, str_length):
     return reverse_string(string, new_str, str_length - 1)
 
 
-print reverse_string("string", '', 6)
+# print reverse_string("string", '', 6)
+
+
+"""
+6. Write a function using recursion to check if a number n is prime (you
+have to check whether n is divisible by any number below n).
+
+>>> is_prime(5)
+True
+
+>>> is_prime(4)
+False
+
+>>> is_prime(15)
+False
+"""
+
+def is_prime(n):
+    if n % recursion_n_to_0(n - 1) == 0:
+        return False
+    else:
+        return True
+
+       
+print is_prime(5)
+
+
+
+def fibonacci(n):
+    """
+    7. Write a recursive function that takes in one argument n and 
+    computes Fn, the nth value of the Fibonacci sequence. Recall that
+    the Fibonacci sequence is defined by the relation Fn = Fn-1 + Fn-2
+    where F0 = 0 and F1 = 1
+    >>> fibonacci(5)
+    5
+
+    >>> fibonacci(1)
+    1
+
+    >>> fibonacci(3)
+    2
+    """
+    
+    if n <= 1:
+        return n
+
+    return fibonacci(n - 2) + fibonacci(n - 1)
+
+print fibonacci(5)
 
 
 
@@ -118,8 +165,8 @@ def main():
     print "this is recursion multiply result", recursion_multiply(3,2)
     print timeit.timeit(lambda: recursion_multiply(3,2), number=100)
 
-    # print "this is recursion exponential result", recursion_exponential(2,10)
-    # print timeit.timeit(lambda: recursion_exponential(2,10), number=100)
+    print "this is recursion exponential result", recursion_exponential(2,10)
+    print timeit.timeit(lambda: recursion_exponential(2,10), number=100)
 
     print "this recursion print n to 0 time"
     recursion_n_to_0(10)
@@ -129,6 +176,10 @@ def main():
     recursion_0_to_n(0, 10)   
 
 
+    print "this is fibonacci result", fibonacci(5)
+    print timeit.timeit(lambda: fibonacci(5), number=100)
+
+
     if doctest.testmod().failed == 0:
         print "\n*** ALL TESTS PASSED. YOU BE AWESOME!\n"
 
@@ -136,98 +187,3 @@ def main():
 if __name__ == '__main__':
     
     main()
-
-
-
-
-# 6.
-# Write
-# a
-# function
-# using
-# recursion
-# to
-# chec
-# k
-# if
-# a
-# num
-# ber
-# n
-# is
-# prime
-# (you
-# have
-# to
-# chec
-# k
-# whether
-# n
-# is
-# divisible
-# by
-# any
-# num
-# ber
-# belo
-# w
-# n).
-# 7.
-# Write
-# a
-# recur
-# sive
-# function
-# that
-# tak
-# es
-# in
-# one
-# argumen
-# t
-# n
-# and
-# computes
-# F
-# n
-# ,
-# the
-# n
-# th
-# value
-# of
-# the
-# Fib
-# onacci
-# sequence.
-# Recall
-# that
-# the
-# Fibonacci
-# sequence
-# is
-# defined
-# by
-# the
-# relation
-# F
-# n
-# =
-# F
-# n
-# -
-# 1
-# +
-# F
-# n
-# -
-# 2
-# where
-# F
-# 0
-# =
-# 0
-# and
-# F
-# 1
-# = 1
